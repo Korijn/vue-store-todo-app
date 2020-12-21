@@ -1,24 +1,14 @@
 # vue-store-todo-app
 
-## Project setup
+Demo todo mvc app for [@korijn/vue-store](https://github.com/Korijn/vue-store)
+
+## Try it
+
+Clone the repo, and run:
+
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![Screenshot](screenshot.png)
