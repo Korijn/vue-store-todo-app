@@ -3,8 +3,8 @@
     <h1>todos</h1>
     <div class="column">
       <div class="row justify-center">
-        <button :disabled="!canUndo" @click="undo">⭯</button>
-        <button :disabled="!canRedo" @click="redo">⭮</button>
+        <button :disabled="!canUndo" @click="undo">Undo</button>
+        <button :disabled="!canRedo" @click="redo">Redo</button>
       </div>
       <div class="row">
         <div>
@@ -33,17 +33,17 @@
         >{{ todo.text }}</div>
         <div>
           <button @click="deleteTodo(todo.id)">
-            🗑
+            X
           </button>
         </div>
       </div>
-      <div class="row" v-if="state.todos.length > 0">
-        <div class="third text-left">
+      <div class="row-lg" v-if="state.todos.length > 0">
+        <div class="third text-left-lg">
           <template v-if="activeItems.length > 0">
             {{ activeItems.length }} items left
           </template>
         </div>
-        <div class="third justify-between row">
+        <div class="third justify-between row-lg">
           <div>
             <button
               @click="setFilter(undefined)"
@@ -69,8 +69,12 @@
             </button>
           </div>
         </div>
-        <div class="third text-right">
-          <button v-if="completedItems.length > 0" @click="clearCompletedTodos">
+        <div class="third text-right-lg">
+          <button
+            class="text-right-lg"
+            v-if="completedItems.length > 0"
+            @click="clearCompletedTodos"
+          >
             Clear completed
           </button>
         </div>
@@ -136,7 +140,6 @@ h1 {
 
 #app {
   text-align: center;
-  margin: 60px;
 }
 
 .strikethrough {
@@ -154,8 +157,33 @@ h1 {
   display: flex;
   flex-direction: row;
 }
-.row:hover {
-  background: rgb(250, 250, 250);
+.row > input {
+  display: flex;
+  min-width: 10px;
+}
+@media (min-width: 840px) {
+  .row-lg {
+    display: flex;
+    flex-direction: row;
+  }
+  .third {
+    width: 33.33%;
+  }
+  .text-left-lg {
+    text-align: left;
+  }
+  .text-right-lg {
+    text-align: right;
+  }
+  #app {
+    margin: 60px;
+  }
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
 }
 .justify-center {
   justify-content: center;
@@ -166,19 +194,11 @@ h1 {
 .grow {
   flex: 1 1 auto;
 }
-.third {
-  width: 33.33%;
-}
-.text-left {
-  text-align: left;
-}
-.text-right {
-  text-align: right;
-}
 
 button {
   background: transparent;
   border: 0;
+  border-radius: 3px;
   cursor: pointer;
   outline: none;
 }
@@ -189,7 +209,6 @@ button:hover:not(:disabled) {
 button.active {
   color: #303030;
   border: 1px solid #666;
-  border-radius: 3px;
 }
 
 button:disabled {
