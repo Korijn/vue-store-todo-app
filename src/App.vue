@@ -98,20 +98,23 @@ export default {
       inputTodo,
       filteredTodos,
       state: store.state,
-      ...store.undoRedo,
+      undo: store.undo,
+      canUndo: store.canUndo,
+      redo: store.redo,
+      canRedo: store.canRedo,
       ...store.computed,
       addTodo() {
-        store.mutators.addTodo({ text: inputTodo.value });
+        store.addTodo({ text: inputTodo.value });
         inputTodo.value = '';
       },
       deleteTodo(id) {
-        store.mutators.deleteTodo({ id });
+        store.deleteTodo({ id });
       },
       toggleTodo(id) {
-        store.mutators.toggleTodo({ id });
+        store.toggleTodo({ id });
       },
-      toggleAllTodos: store.mutators.toggleAllTodos,
-      clearCompletedTodos: store.mutators.clearCompletedTodos,
+      toggleAllTodos: store.toggleAllTodos,
+      clearCompletedTodos: store.clearCompletedTodos,
       setFilter(value) {
         todoFilter.value = value;
       },

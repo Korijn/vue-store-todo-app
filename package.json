@@ -8,7 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@korijn/vue-store": "^0.2.1",
+    "@korijn/vue-store": "^0.3.1",
     "vue": "^3.0.0"
   },
   "devDependencies": {

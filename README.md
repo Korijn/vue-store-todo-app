@@ -1,6 +1,6 @@
 # vue-store-todo-app
 
-Demo todo mvc app for [@korijn/vue-store](https://github.com/Korijn/vue-store)
+Demo Todo MVC application for [https://github.com/Korijn/vue-store](https://github.com/Korijn/vue-store)
 
 ## Try it
 
