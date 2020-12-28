@@ -8,9 +8,12 @@
       </div>
       <div class="row">
         <div>
-          <button v-if="state.todos.length > 0" @click="toggleAllTodos">
-            {{ filteredTodos.length > 0 && !activeItems.length ? "☑" : "☐" }}
-          </button>
+          <input
+            type="checkbox"
+            :disabled="state.todos.length === 0"
+            @click="toggleAllTodos"
+            :checked="filteredTodos.length > 0 && !activeItems.length"
+          />
         </div>
         <input
           class="grow"
@@ -21,9 +24,11 @@
       </div>
       <div class="row" v-for="todo in filteredTodos" :key="todo.id">
         <div>
-          <button @click="toggleTodo(todo.id)">
-            {{ todo.status === "done" ? "☑" : "☐" }}
-          </button>
+          <input
+            type="checkbox"
+            @click="toggleTodo(todo.id)"
+            :checked="todo.status === 'done'"
+          />
         </div>
         <div
           class="grow text-left"
