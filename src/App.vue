@@ -8,7 +8,7 @@
       </div>
       <div class="row">
         <div>
-          <button @click="toggleAllTodos">
+          <button v-if="state.todos.length > 0" @click="toggleAllTodos">
             {{ filteredTodos.length > 0 && !activeItems.length ? "☑" : "☐" }}
           </button>
         </div>
